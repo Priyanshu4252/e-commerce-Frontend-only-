@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 function Login() {
 	return (
 		<div className="w-full h-screen bg-blue-100 flex justify-center items-center">
-			<div className="w-[50%] h-[80%] bg-blue-300 shadow-2xl flex flex-col items-center justify-center gap-5 rounded-2xl">
+			<div className="lg:w-[50%] w-[80%] p-5 h-[80%] bg-blue-300 shadow-2xl flex flex-col items-center justify-center gap-5 rounded-2xl">
 				<MdAccountCircle className="size-40"></MdAccountCircle>
-				<h1 className="text-3xl">COUSTOMER LOGIN</h1>
+				<h1 className="text-xl lg:text-3xl tracking-tighter">COUSTOMER LOGIN</h1>
 				<form
 					action="Login"
 					method="post"
@@ -24,7 +24,7 @@ function Login() {
 					></input>
 					<button
 						type="submit"
-						className="border-3 rounded-xl px-10 py-3 bg-black text-white font-extrabold border-black "
+						className="cursor-pointer border-3 rounded-xl px-10 py-3 bg-black text-white font-extrabold border-black "
 					>
 						Login
 					</button>

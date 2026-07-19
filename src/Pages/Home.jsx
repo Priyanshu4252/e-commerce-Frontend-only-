@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Card from "../components/Card";
 import axios from "axios";
-
+import Navbar from "../components/Navbar";
 function App() {
 	const [products, setProducts] = useState([]);
 
@@ -18,7 +18,8 @@ function App() {
 	console.log(products);
 
 	return (
-		<div className="bg-zinc-200 w-full min-h-screen p-2 lg:p-5 ">
+		<div className="bg-blue-100 w-full min-h-screen p-2 lg:p-5 ">
+			<Navbar />
 			<div
 				id="cardHolder"
 				className="flex gap-6 lg:gap-13  flex-wrap justify-center items-center"
@@ -27,7 +28,6 @@ function App() {
 					return <Card value={value} key={value.id} />;
 				})}
 			</div>
-			;
 		</div>
 	);
 }
