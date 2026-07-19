@@ -15,14 +15,12 @@ function App() {
 		};
 		getProducts();
 	}, []);
-	console.log(products);
-
 	return (
-		<div className="bg-blue-100 w-full min-h-screen p-2 lg:p-5 ">
+		<div className="bg-blue-100 w-full min-h-screen p-2 pt-5 lg:p-5 ">
 			<Navbar />
 			<div
 				id="cardHolder"
-				className="flex gap-6 lg:gap-13  flex-wrap justify-center items-center"
+				className="py-5 flex gap-6 lg:gap-13  flex-wrap justify-center items-center"
 			>
 				{products.map((value, index) => {
 					return <Card value={value} key={value.id} />;
