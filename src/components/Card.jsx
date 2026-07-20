@@ -2,14 +2,14 @@ import React from "react";
 import { useState } from "react";
 import { FaExpandAlt } from "react-icons/fa";
 
-function Card({value}) {
-	const { description, image, price, title } = value;
-	const [expand, setExpand] = useState(false);
+function Card({ value, click }) {
+	const { description, image, price, title, id } = value;
 	const [hover, setHover] = useState(false);
+	
 	return (
 		<div
 			id="main"
-			className="bg-blue-300 lg:bg-blue-200 hover:bg-blue-300 h-fit w-40 lg:h-fit lg:w-60 shadow-2xl rounded-2xl py-2 px-1 flex flex-col items-center " 
+			className="bg-blue-300 lg:bg-blue-200 hover:bg-blue-300 h-fit w-40 lg:h-fit lg:w-60 shadow-2xl rounded-2xl py-2 px-1 flex flex-col items-center "
 		>
 			<div
 				id="imageContainer"
@@ -17,22 +17,24 @@ function Card({value}) {
 				onMouseEnter={() => setHover(true)}
 				onMouseLeave={() => setHover(false)}
 			>
-				<div className=" z-1 w-full  flex  justify-end  absolute p-2">
-					<FaExpandAlt className="text-white size-6 lg:hidden"></FaExpandAlt>
-				</div>
 				<div
-					className={`select-none rounded-2xl w-full h-full bg-black/30 flex items-center justify-center font-bold text-white text-base lg:text-3xl absolute ${hover ? "z-1" : "hidden"}`}
+					className=" z-1 w-full  flex  justify-end  absolute p-2"
 				>
-					Click to Expand
+					<FaExpandAlt
+						className="text-white size-6"
+						onClick={click}
+					></FaExpandAlt>
 				</div>
 				<img
 					id="image"
-					className="rounded-2xl w-full h-full object-fit overflow-hidden absolute"
+					className="rounded-2xl w-full h-full object-fit overflow-hidden"
 					src={image}
 				></img>
 			</div>
 			<div className="h-18 lg:h-24 overflow-hidden">
-				<div className="leading-5 py-3 px-2 text-sm lg:text-base tracking-tighter lg:tracking-normal">{title}</div>
+				<div className="leading-5 py-3 px-2 text-sm lg:text-base tracking-tighter lg:tracking-normal">
+					{title}
+				</div>
 			</div>
 			<div
 				id="details"
