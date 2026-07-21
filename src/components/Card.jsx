@@ -1,10 +1,8 @@
 import React from "react";
-import { useState } from "react";
 import { FaExpandAlt } from "react-icons/fa";
 
 function Card({ value, click }) {
 	const { description, image, price, title, id } = value;
-	const [hover, setHover] = useState(false);
 	
 	return (
 		<div
@@ -14,8 +12,6 @@ function Card({ value, click }) {
 			<div
 				id="imageContainer"
 				className="w-[95%] h-45 lg:h-60 relative "
-				onMouseEnter={() => setHover(true)}
-				onMouseLeave={() => setHover(false)}
 			>
 				<div
 					className=" z-1 w-full  flex  justify-end  absolute p-2"

@@ -3,6 +3,7 @@ import Card from "../components/Card";
 import axios from "axios";
 import Navbar from "../components/Navbar";
 import ExpandCard from "../components/ExpandCard";
+
 function App() {
 	const [products, setProducts] = useState([]);
 	const [data, setData] = useState({});
@@ -31,7 +32,7 @@ function App() {
 	return (
 		<div className="bg-blue-100 h-screen p-2 pt-5 lg:p-5 flex flex-col ">
 			<Navbar />
-			<div className="flex flex-1 overflow-hidden pt-5 relative">
+			<div className="flex overflow-hidden pt-5 relative">
 				<div
 					className={` flex ${expand ? "w-[0%] lg:w-[75%]" : "w-full"} transition-all duration-10 gap-6 lg:gap-13  flex-wrap justify-center items-center overflow-y-auto scrollbar-none `}
 				>

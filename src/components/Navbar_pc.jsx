@@ -1,5 +1,6 @@
 import { useState, React } from "react";
 import { Link } from "react-router-dom";
+import { IoCartOutline } from "react-icons/io5";
 
 function Navbar_pc() {
 	return (
@@ -19,6 +20,9 @@ function Navbar_pc() {
 				<Link>Electronics</Link>
 				<Link>Jewellery</Link>
 				<Link>Others</Link>
+				<Link className="px-3 py-2 rounded-xl bg-orange-300 flex gap-2 items-center" to={"/cart"}>
+					<IoCartOutline />Cart
+				</Link>
 			</div>
 		</div>
 	);
