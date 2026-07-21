@@ -31,8 +31,10 @@ function App() {
 	return (
 		<div className="bg-blue-100 h-screen p-2 pt-5 lg:p-5 flex flex-col ">
 			<Navbar />
-			<div className="flex overflow-hidden pt-5">
-				<div className="flex flex-1 gap-6 lg:gap-13  flex-wrap justify-center items-center overflow-y-auto scrollbar-none">
+			<div className="flex flex-1 overflow-hidden pt-5 relative">
+				<div
+					className={` flex ${expand ? "w-[0%] lg:w-[75%]" : "w-full"} transition-all duration-10 gap-6 lg:gap-13  flex-wrap justify-center items-center overflow-y-auto scrollbar-none `}
+				>
 					{products.map((value, index) => {
 						return (
 							<Card
@@ -44,7 +46,7 @@ function App() {
 					})}
 				</div>
 				<div
-					className={`${expand ? "w-[100%] lg:w-[25%]" : "w-0"} transition-all duration-300 overflow-y-auto scrollbar-none`}
+					className={`${expand ? "w-[100%] lg:w-[25%]" : "w-0"} absolute right-0 top-5 bottom-0  transition-all duration-300 overflow-y-auto scrollbar-none`}
 				>
 					<ExpandCard value={data} click={() => closecard()} />
 				</div>
