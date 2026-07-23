@@ -7,7 +7,19 @@ import ExpandCard from "../components/ExpandCard";
 function App() {
 	const [products, setProducts] = useState([]);
 	const [data, setData] = useState({});
+	const [cart, setCart] = useState([]);
 	const [expand, setExpand] = useState(false);
+
+	function addToCart(value) {
+		setCart((prev) => [
+			...prev,
+			{
+				productid: value.id,
+				quantity: 1,
+			},
+		]);
+	}
+
 	useEffect(() => {
 		const getProducts = async () => {
 			const response = await axios.get(
@@ -30,8 +42,8 @@ function App() {
 	}
 
 	return (
-		<div className="bg-blue-100 h-screen p-2 pt-5 lg:p-5 flex flex-col ">
-			<Navbar />
+		<div className="bg-blue-100 min-h-screen p-2 pt-5 lg:p-5">
+			<Navbar cart={cart} />
 			<div className="flex overflow-hidden pt-5 relative">
 				<div
 					className={` flex ${expand ? "w-[0%] lg:w-[75%]" : "w-full"} transition-all duration-10 gap-6 lg:gap-13  flex-wrap justify-center items-center overflow-y-auto scrollbar-none `}
@@ -41,7 +53,12 @@ function App() {
 							<Card
 								value={value}
 								key={value.id}
-								click={() => handleonclick(value)}
+								handleonclick={() => {
+									handleonclick(value);
+								}}
+								addToCart={() => {
+									addToCart(value);
+								}}
 							/>
 						);
 					})}

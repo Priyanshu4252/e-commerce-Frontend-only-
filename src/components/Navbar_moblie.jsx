@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { GoSidebarCollapse } from "react-icons/go";
 import { IoCartOutline } from "react-icons/io5";
 
-function Navbar_moblie() {
+function Navbar_moblie({ cart }) {
 	const [expand, setExpand] = useState(false);
 
 	return (
@@ -33,9 +33,13 @@ function Navbar_moblie() {
 						</h1>
 					</div>
 					<div>
-						<Link className="px-3 py-2 rounded-xl bg-orange-300 flex gap-2 items-center text-2xl tracking-tighter">
+						<Link
+							className="px-3 py-2 rounded-xl bg-orange-300 flex gap-2 items-center text-2xl tracking-tighter"
+							state={{ cart }}
+							to={"/cart"}
+						>
 							<IoCartOutline />
-							Cart
+							Cart <h1 className="text-xl">{cart.length}</h1>
 						</Link>
 					</div>
 				</div>

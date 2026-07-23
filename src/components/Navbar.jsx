@@ -1,14 +1,14 @@
 import { React } from "react";
 import Navbar_pc from "./Navbar_pc";
 import Navbar_moblie from "./Navbar_moblie";
-function Navbar() {
+function Navbar({ cart }) {
 	return (
 		<>
 			<div className="hidden lg:block">
-				<Navbar_pc />
+				<Navbar_pc cart={cart} />
 			</div>
 			<div className="lg:hidden">
-				<Navbar_moblie />
+				<Navbar_moblie cart={cart} />
 			</div>
 		</>
 	);
